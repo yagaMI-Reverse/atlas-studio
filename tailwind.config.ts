@@ -5,31 +5,31 @@ export default {
   theme: {
     extend: {
       colors: {
+        paper: {
+          DEFAULT: "#FAF7F1",
+          warm: "#F1EBE0",
+        },
         ink: {
-          DEFAULT: "#0A0A0A",
-          900: "#0A0A0A",
-          800: "#121212",
-          700: "#1A1A1A",
-          600: "#242424",
+          DEFAULT: "#141109",
+          dim: "#5B554A",
+          faint: "#948D80",
         },
-        bone: {
-          DEFAULT: "#F4F1EA",
-          muted: "#A8A39A",
-          dim: "#6E6A62",
+        line: {
+          DEFAULT: "#E4DDD0",
+          strong: "#141109",
         },
-        lime: {
-          DEFAULT: "#D4FF4F",
-          400: "#D4FF4F",
-          500: "#C2F23A",
+        accent: {
+          DEFAULT: "#E03E1D",
+          deep: "#B92D10",
         },
       },
       fontFamily: {
-        display: ['"Space Grotesk"', "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ['"Fraunces"', "Georgia", "serif"],
         sans: ['"Inter"', "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', "ui-monospace", "monospace"],
       },
       letterSpacing: {
-        tightest: "-0.05em",
+        tightest: "-0.03em",
       },
       maxWidth: {
         container: "88rem",

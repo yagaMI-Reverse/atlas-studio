@@ -34,13 +34,15 @@ export function Services() {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <section id="services" className="border-y border-ink-600 bg-ink-800">
+    <section id="services" className="border-y-2 border-line-strong bg-paper-warm">
       <div className="container-x py-20 sm:py-28">
         <Reveal>
-          <p className="eyebrow mb-10">/ What we do</p>
+          <p className="eyebrow mb-10">
+            <span className="text-accent">/</span> What we do
+          </p>
         </Reveal>
 
-        <ul className="divide-y divide-ink-600 border-y border-ink-600">
+        <ul className="divide-y divide-line border-y border-line">
           {SERVICES.map((s, i) => (
             <Reveal as="li" key={s.no} delay={i * 0.04}>
               <button
@@ -49,15 +51,17 @@ export function Services() {
                 onFocus={() => setActive(s.no)}
                 onMouseLeave={() => setActive(null)}
                 onBlur={() => setActive(null)}
-                className="group grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 py-7 text-left transition-colors sm:gap-8 sm:py-9"
+                className="group grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 px-2 py-7 text-left transition-colors duration-300 hover:bg-ink sm:gap-8 sm:px-4 sm:py-9"
               >
-                <span className="font-mono text-sm text-bone-dim">{s.no}</span>
+                <span className="font-mono text-sm text-ink-faint transition-colors duration-300 group-hover:text-accent">
+                  {s.no}
+                </span>
                 <span className="min-w-0">
-                  <span className="block font-display text-3xl font-bold tracking-tightest text-bone transition-colors group-hover:text-lime sm:text-5xl lg:text-6xl">
+                  <span className="block font-display text-3xl font-medium tracking-tightest text-ink transition-colors duration-300 group-hover:text-paper sm:text-5xl lg:text-6xl">
                     {s.title}
                   </span>
                   <span
-                    className={`mt-2 block max-w-xl text-bone-muted transition-all duration-300 ${
+                    className={`mt-2 block max-w-xl text-ink-dim transition-all duration-300 group-hover:text-paper/70 ${
                       active === s.no
                         ? "max-h-20 opacity-100"
                         : "max-h-0 overflow-hidden opacity-0 sm:max-h-0"
@@ -67,7 +71,7 @@ export function Services() {
                   </span>
                 </span>
                 <ArrowUpRight
-                  className="h-6 w-6 shrink-0 text-bone-dim transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-lime sm:h-8 sm:w-8"
+                  className="h-6 w-6 shrink-0 text-ink-faint transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent sm:h-8 sm:w-8"
                   aria-hidden="true"
                 />
               </button>

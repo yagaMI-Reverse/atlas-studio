@@ -1,16 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 @layer base {
   * {
-    @apply border-ink-600;
+    @apply border-line;
   }
 
   html {
@@ -18,18 +18,18 @@
   }
 
   body {
-    @apply bg-ink text-bone font-sans antialiased;
+    @apply bg-paper font-sans text-ink antialiased;
     font-feature-settings: "ss01", "cv01";
     -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
-    @apply bg-lime text-ink;
+    @apply bg-accent text-paper;
   }
 
   /* Visible focus ring for keyboard navigation */
   :focus-visible {
-    @apply outline-none ring-2 ring-lime ring-offset-2 ring-offset-ink;
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-paper;
   }
 
   /* Custom thin scrollbar */
@@ -37,10 +37,10 @@
     width: 10px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-ink;
+    @apply bg-paper;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-ink-600;
+    @apply bg-line;
     border-radius: 999px;
   }
 }
@@ -51,18 +51,17 @@
   }
 
   .display-clamp {
-    /* Oversized fluid display type */
     font-size: clamp(2.75rem, 11vw, 11rem);
-    line-height: 0.92;
+    line-height: 0.95;
   }
 
   .display-clamp-md {
     font-size: clamp(2.25rem, 7vw, 6rem);
-    line-height: 0.95;
+    line-height: 1.0;
   }
 
   .eyebrow {
-    @apply font-mono text-xs uppercase tracking-[0.25em] text-bone-muted;
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-ink-faint;
   }
 
   .link-underline {
@@ -70,15 +69,23 @@
   }
   .link-underline::after {
     content: "";
-    @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-lime transition-transform duration-300 ease-out;
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-accent transition-transform duration-300 ease-out;
   }
   .link-underline:hover::after {
     @apply origin-left scale-x-100;
   }
 
-  .text-outline {
-    color: transparent;
-    -webkit-text-stroke: 1.5px theme("colors.bone.dim");
+  /* serif italic accent word */
+  .accent-italic {
+    @apply font-display italic font-medium text-accent;
+  }
+
+  /* editorial flood inversion */
+  .flood {
+    @apply transition-colors duration-300;
+  }
+  .flood:hover {
+    @apply bg-ink text-paper;
   }
 }
 

@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { Reveal } from "./Reveal";
 
@@ -10,41 +9,26 @@ const SOCIALS = [
 ];
 
 export function Contact() {
-  const reduce = useReducedMotion();
   return (
-    <section id="contact" className="relative overflow-hidden">
-      <div
-        className="pointer-events-none absolute inset-0 -z-10"
-        aria-hidden="true"
-      >
-        <motion.div
-          className="absolute left-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-25 blur-[140px]"
-          style={{
-            background:
-              "radial-gradient(circle, #D4FF4F 0%, transparent 60%)",
-          }}
-          animate={reduce ? undefined : { scale: [1, 1.15, 1] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
-
+    <section id="contact" className="bg-ink text-paper">
       <div className="container-x py-28 text-center sm:py-36">
         <Reveal>
-          <p className="eyebrow mb-8">/ Let's make something</p>
+          <p className="eyebrow mb-8 !text-paper/50">
+            <span className="text-accent">/</span> Let&apos;s make something
+          </p>
         </Reveal>
 
         <Reveal y={40}>
-          <h2 className="display-clamp font-display font-bold tracking-tightest">
-            Got a wild
-            <br />
-            <span className="text-lime">idea?</span>
+          <h2 className="display-clamp font-display font-medium tracking-tightest">
+            Got a wild{" "}
+            <span className="accent-italic">idea?</span>
           </h2>
         </Reveal>
 
         <Reveal delay={0.1}>
           <a
             href="mailto:hello@atlas.studio"
-            className="group mt-12 inline-flex items-center gap-3 rounded-full bg-lime px-7 py-4 font-mono text-base font-medium text-ink transition-transform hover:-translate-y-1 sm:text-lg"
+            className="group mt-14 inline-flex items-center gap-3 rounded-full bg-paper px-8 py-4 font-mono text-base font-medium text-ink transition-all duration-300 hover:-translate-y-1 hover:bg-accent hover:text-paper sm:text-lg"
           >
             <Mail className="h-5 w-5" aria-hidden="true" />
             hello@atlas.studio
@@ -56,14 +40,14 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <ul className="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+          <ul className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
             {SOCIALS.map((s) => (
               <li key={s.label}>
                 <a
                   href={s.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="link-underline font-mono text-sm uppercase tracking-widest text-bone-muted transition-colors hover:text-bone"
+                  className="link-underline font-mono text-xs uppercase tracking-[0.2em] text-paper/50 transition-colors hover:text-paper"
                 >
                   {s.label}
                 </a>

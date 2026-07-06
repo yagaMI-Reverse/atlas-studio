@@ -9,13 +9,13 @@ export function Hero() {
 
   const lineParent = {
     hidden: {},
-    show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+    show: { transition: { staggerChildren: 0.14, delayChildren: 0.1 } },
   };
   const line = {
-    hidden: { y: reduce ? 0 : "110%" },
+    hidden: { y: reduce ? 0 : "112%" },
     show: {
       y: "0%",
-      transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as const },
+      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as const },
     },
   };
 
@@ -24,54 +24,25 @@ export function Hero() {
       id="top"
       className="relative overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-36 lg:pt-44"
     >
-      {/* Animated gradient blob backdrop */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
-        aria-hidden="true"
-      >
-        <motion.div
-          className="absolute -right-32 -top-24 h-[36rem] w-[36rem] rounded-full opacity-40 blur-[120px]"
-          style={{
-            background:
-              "radial-gradient(circle at 30% 30%, #D4FF4F 0%, transparent 60%)",
-          }}
-          animate={
-            reduce ? undefined : { x: [0, 40, -20, 0], y: [0, 30, 10, 0] }
-          }
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute -bottom-40 -left-24 h-[30rem] w-[30rem] rounded-full opacity-30 blur-[120px]"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 50%, #5B5BFF 0%, transparent 60%)",
-          }}
-          animate={
-            reduce ? undefined : { x: [0, -30, 20, 0], y: [0, -20, 20, 0] }
-          }
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
-
       <div className="container-x">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-8 flex flex-wrap items-center gap-x-6 gap-y-2"
+          className="mb-10 flex flex-wrap items-center gap-x-6 gap-y-2"
         >
-          <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-bone-muted">
-            <Circle className="h-2 w-2 fill-lime text-lime" aria-hidden="true" />
+          <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-ink-dim">
+            <Circle className="h-2 w-2 fill-accent text-accent" aria-hidden="true" />
             Available — Q3 2026
           </span>
-          <span className="eyebrow">Creative Digital Studio · Est. 2018</span>
+          <span className="eyebrow">Creative Digital Studio · Est. 2018 · Lisbon</span>
         </motion.div>
 
-        {/* Kinetic headline — masked line reveal */}
-        <h1 className="font-display font-bold tracking-tightest text-bone">
+        {/* Editorial headline — masked line reveal */}
+        <h1 className="font-display font-medium tracking-tightest text-ink">
           <span className="sr-only">
             Atlas Studio — we build bold brands and expressive digital
-            experiences.
+            experiences with conviction.
           </span>
           <motion.span
             variants={lineParent}
@@ -82,20 +53,13 @@ export function Hero() {
           >
             <span className="block overflow-hidden">
               <motion.span variants={line} className="display-clamp block">
-                We build
+                Design with
               </motion.span>
             </span>
-            <span className="block overflow-hidden">
-              <motion.span
-                variants={line}
-                className="display-clamp block text-outline"
-              >
-                bold brands
-              </motion.span>
-            </span>
-            <span className="block overflow-hidden">
+            <span className="block overflow-hidden pb-2">
               <motion.span variants={line} className="display-clamp block">
-                &amp; <span className="text-lime">digital</span> craft.
+                <span className="accent-italic">conviction</span>
+                <span className="text-ink">.</span>
               </motion.span>
             </span>
           </motion.span>
@@ -105,19 +69,19 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
+          className="mt-12 flex flex-col gap-8 border-t border-line-strong pt-8 md:flex-row md:items-end md:justify-between"
         >
-          <p className="max-w-md text-lg leading-relaxed text-bone-muted">
+          <p className="max-w-md text-lg leading-relaxed text-ink-dim">
             Atlas is an independent studio shaping brands, websites, and
             product experiences for teams who refuse to blend in. Strategy,
             design, and engineering under one roof.
           </p>
           <a
             href="#work"
-            className="group inline-flex items-center gap-3 self-start font-mono text-sm uppercase tracking-widest text-bone md:self-auto"
+            className="group inline-flex items-center gap-4 self-start font-mono text-xs uppercase tracking-[0.2em] text-ink md:self-auto"
           >
             <span className="link-underline">View selected work</span>
-            <span className="grid h-12 w-12 place-items-center rounded-full border border-ink-600 transition-colors group-hover:border-lime group-hover:bg-lime group-hover:text-ink">
+            <span className="grid h-12 w-12 place-items-center rounded-full border border-line-strong transition-all duration-300 group-hover:bg-accent group-hover:border-accent group-hover:text-paper">
               <ArrowDownRight className="h-5 w-5" aria-hidden="true" />
             </span>
           </a>
@@ -125,10 +89,10 @@ export function Hero() {
       </div>
 
       {/* Services marquee */}
-      <div className="mt-16 border-y border-ink-600 py-5 sm:mt-20">
+      <div className="mt-16 border-y-2 border-line-strong py-5 sm:mt-20">
         <Marquee
           items={WORDS}
-          className="font-display text-3xl font-semibold uppercase tracking-tight text-bone sm:text-5xl"
+          className="font-display text-3xl font-medium uppercase tracking-tight text-ink sm:text-5xl"
         />
       </div>
     </section>

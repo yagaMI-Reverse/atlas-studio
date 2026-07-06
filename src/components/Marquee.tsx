@@ -31,7 +31,7 @@ export function Marquee({
         {track.map((item, i) => (
           <span key={i} className="flex shrink-0 items-center">
             <span className="px-6 sm:px-10">{item}</span>
-            <Asterisk className="h-5 w-5 shrink-0 text-lime sm:h-7 sm:w-7" />
+            <Asterisk className="h-5 w-5 shrink-0 text-accent sm:h-7 sm:w-7" />
           </span>
         ))}
       </div>

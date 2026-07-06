@@ -22,21 +22,23 @@ const CLIENTS = [
 
 export function Recognition() {
   return (
-    <section className="border-y border-ink-600 bg-ink-800">
+    <section className="border-y-2 border-line-strong bg-paper-warm">
       <div className="container-x py-20 sm:py-28">
         <Reveal>
-          <p className="eyebrow mb-12">/ Recognition</p>
+          <p className="eyebrow mb-12">
+            <span className="text-accent">/</span> Recognition
+          </p>
         </Reveal>
 
-        <ul className="divide-y divide-ink-600 border-y border-ink-600">
+        <ul className="divide-y divide-line border-y border-line">
           {AWARDS.map((a, i) => (
             <Reveal as="li" key={a.org} delay={i * 0.05}>
-              <div className="grid grid-cols-[1fr_auto] items-center gap-4 py-6 sm:grid-cols-[1.2fr_2fr_auto] sm:gap-8">
-                <span className="font-display text-xl font-bold tracking-tightest text-bone sm:text-2xl">
+              <div className="group grid grid-cols-[1fr_auto] items-center gap-4 px-2 py-6 transition-colors duration-300 hover:bg-paper sm:grid-cols-[1.2fr_2fr_auto] sm:gap-8 sm:px-4">
+                <span className="font-display text-xl font-medium tracking-tightest text-ink transition-colors duration-300 group-hover:text-accent sm:text-2xl">
                   {a.org}
                 </span>
-                <span className="hidden text-bone-muted sm:block">{a.note}</span>
-                <span className="justify-self-end font-mono text-sm text-bone-dim">
+                <span className="hidden text-ink-dim sm:block">{a.note}</span>
+                <span className="justify-self-end font-mono text-sm text-ink-faint">
                   {a.year}
                 </span>
               </div>
@@ -45,13 +47,13 @@ export function Recognition() {
         </ul>
       </div>
 
-      {/* Client logo-ish marquee */}
-      <div className="border-t border-ink-600 py-6">
+      {/* Client marquee */}
+      <div className="border-t border-line py-6">
         <Marquee
           items={CLIENTS}
           reverse
           speed="slow"
-          className="font-display text-2xl font-medium uppercase tracking-tight text-bone-dim sm:text-3xl"
+          className="font-display text-2xl font-medium italic tracking-tight text-ink-faint sm:text-3xl"
         />
       </div>
     </section>
