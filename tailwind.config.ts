@@ -5,34 +5,37 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: {
-          DEFAULT: "#FAF7F1",
-          warm: "#F1EBE0",
-        },
-        ink: {
-          DEFAULT: "#141109",
-          dim: "#5B554A",
-          faint: "#948D80",
-        },
+        void: "#080808",
+        panel: "#0F0F0F",
+        raised: "#161616",
         line: {
-          DEFAULT: "#E4DDD0",
-          strong: "#141109",
+          DEFAULT: "#262626",
+          strong: "#EDEDED",
         },
-        accent: {
-          DEFAULT: "#E03E1D",
-          deep: "#B92D10",
+        chalk: {
+          DEFAULT: "#EDEDED",
+          dim: "#9A9A9A",
+          faint: "#5C5C5C",
+        },
+        acid: {
+          DEFAULT: "#D8FF3E",
+          deep: "#B8E020",
         },
       },
       fontFamily: {
-        display: ['"Fraunces"', "Georgia", "serif"],
-        sans: ['"Inter"', "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ['"Archivo Black"', "Impact", "sans-serif"],
+        sans: ['"Space Grotesk"', "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono"', "ui-monospace", "monospace"],
       },
       letterSpacing: {
-        tightest: "-0.03em",
+        tightest: "-0.04em",
       },
       maxWidth: {
         container: "88rem",
+      },
+      boxShadow: {
+        acid: "0 0 40px -8px rgba(216,255,62,0.45)",
+        "acid-hard": "6px 6px 0 0 #D8FF3E",
       },
       keyframes: {
         marquee: {
@@ -43,11 +46,16 @@ export default {
           "0%": { transform: "translateX(-50%)" },
           "100%": { transform: "translateX(0)" },
         },
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.25" },
+        },
       },
       animation: {
-        marquee: "marquee 30s linear infinite",
-        "marquee-slow": "marquee 45s linear infinite",
-        "marquee-reverse": "marquee-reverse 38s linear infinite",
+        marquee: "marquee 22s linear infinite",
+        "marquee-slow": "marquee 40s linear infinite",
+        "marquee-reverse": "marquee-reverse 30s linear infinite",
+        blink: "blink 1.6s steps(2) infinite",
       },
     },
   },

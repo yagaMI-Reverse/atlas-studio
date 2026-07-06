@@ -35,42 +35,43 @@ export function Process() {
       <div className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <Reveal>
           <p className="eyebrow mb-4">
-            <span className="text-accent">/</span> How we work
+            <span className="text-acid">[</span> How we work{" "}
+            <span className="text-acid">]</span>
           </p>
-          <h2 className="display-clamp-md font-display font-medium tracking-tightest">
-            Four steps, <span className="accent-italic">zero surprises.</span>
+          <h2 className="display-clamp-md font-display uppercase tracking-tightest">
+            Four steps, <span className="text-acid">zero surprises.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="max-w-xs font-mono text-sm leading-relaxed text-ink-dim">
+          <p className="max-w-xs font-mono text-sm leading-relaxed text-chalk-dim">
             A transparent process that keeps you in the loop from kickoff to
             launch and beyond.
           </p>
         </Reveal>
       </div>
 
-      <div className="grid gap-px overflow-hidden border border-line-strong bg-line sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-px overflow-hidden border-2 border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
         {STEPS.map((s, i) => {
           const Icon = s.icon;
           return (
             <Reveal
               key={s.no}
               delay={i * 0.08}
-              className="group flex h-full flex-col gap-8 bg-paper p-7 transition-colors duration-300 hover:bg-paper-warm sm:p-8"
+              className="group flex h-full flex-col gap-8 bg-void p-7 transition-colors duration-200 hover:bg-panel sm:p-8"
             >
               <div className="flex items-start justify-between">
-                <span className="font-display text-6xl font-medium tracking-tightest text-line transition-colors duration-300 group-hover:text-accent">
+                <span className="text-outline font-display text-6xl uppercase tracking-tightest transition-all duration-200 group-hover:text-acid group-hover:[-webkit-text-stroke:0px]">
                   {s.no}
                 </span>
-                <span className="grid h-12 w-12 place-items-center rounded-full border border-line text-ink-dim transition-all duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-paper">
+                <span className="grid h-12 w-12 place-items-center border-2 border-line text-chalk-dim transition-all duration-200 group-hover:border-acid group-hover:bg-acid group-hover:text-void">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
               </div>
               <div>
-                <h3 className="font-display text-2xl font-medium tracking-tightest text-ink">
+                <h3 className="font-display text-xl uppercase tracking-tightest text-chalk">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-dim">
+                <p className="mt-3 text-sm leading-relaxed text-chalk-dim">
                   {s.desc}
                 </p>
               </div>

@@ -1,10 +1,13 @@
 import { Asterisk } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 type MarqueeProps = {
   items: string[];
   reverse?: boolean;
   speed?: "normal" | "slow";
   className?: string;
+  icon?: LucideIcon;
+  iconClass?: string;
 };
 
 /**
@@ -16,6 +19,8 @@ export function Marquee({
   reverse = false,
   speed = "normal",
   className = "",
+  icon: Icon = Asterisk,
+  iconClass = "text-acid",
 }: MarqueeProps) {
   const anim = reverse
     ? "animate-marquee-reverse"
@@ -31,7 +36,7 @@ export function Marquee({
         {track.map((item, i) => (
           <span key={i} className="flex shrink-0 items-center">
             <span className="px-6 sm:px-10">{item}</span>
-            <Asterisk className="h-5 w-5 shrink-0 text-accent sm:h-7 sm:w-7" />
+            <Icon className={`h-5 w-5 shrink-0 sm:h-7 sm:w-7 ${iconClass}`} />
           </span>
         ))}
       </div>
